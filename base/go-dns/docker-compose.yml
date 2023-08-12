@@ -1,0 +1,13 @@
+version: "3"
+services:
+
+  dns:
+    image: soulteary/go-dnsmasq
+      #command: dnsmasq -l 0.0.0.0:53 -f /hosts.conf -p 1s --nameservers 10.11.12.13:53
+    command: dnsmasq -l 0.0.0.0:53 -f /hosts.conf -p 1s --nameservers 8.8.8.8:53
+    restart: always
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+    volumes:
+      - ./hosts.conf:/hosts.conf:rw

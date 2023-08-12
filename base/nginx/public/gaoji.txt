@@ -1,0 +1,49 @@
+旧电脑规划：
+拆卸显卡1050ti闲鱼出。
+拆卸固态硬盘，安装到新电脑。（1T）
+主机安装虚拟机 (exsi)
+NAS
+基础设施
+应用（docker）
+服务监控和日志
+
+
+---------------------------------
+
+uname -a #内核
+lsb_release -a #查看系统版本
+
+drwxrwxrwx
+    文件类型
+        - 表示普通文件
+        d 表示目录
+        l 表示链接文件
+        c 表示字符设备文件
+        b 表示块设备文件
+        p 表示管道文件
+        s 表示套接字文件
+    权限标志位(u for user;g for group;o for other;a for all)
+        (u)所有者权限：表示文件或目录所有者的权限。
+        (g)所属组权限：表示与文件或目录所有者属于同一组的用户的权限。
+        (o)其他用户权限：表示除了所有者和所属组之外的其他用户的权限。
+
+设置权限
+    chmod u+r file.txt  # 添加所有者的读取权限
+    chmod go-w file.txt  # 移除所属组和其他用户的写入权限
+    chmod a=x file.txt  # 设置所有用户的执行权限
+
+
+创建用户
+    sudo useradd -m <用户名>   # -m会在home下创建目录
+    sudo passwd <用户名>
+
+    while IFS= read -r username; do
+        sudo useradd -m "$username"
+    done < userlist.txt
+
+    sudo usermod -aG <组名> <用户名>
+
+修改power shell背景色：开始目录，设置颜色属性，黑色
+
+---------------------------------
+    
