@@ -1,0 +1,19 @@
+version: '3'
+services:
+  mysql-master:
+    image: mysql:8.0.13
+    container_name: mysql-master
+    environment:
+      MYSQL_ROOT_PASSWORD: "123456"
+      ADMIN_USER: "root" #当前容器用于拥有创建账号功能的数据库账号
+      ADMIN_PASSWORD: "123456"
+      TZ: "Asia/Shanghai" #解决时区问题
+    ports:
+    - 3306:3306
+    volumes:
+    - ./data:/var/lib/mysql
+    command:
+    -  "--character-set-server=utf8mb4"
+    -  "--collation-server=utf8mb4_unicode_ci"
+    # -  "--log-bin=mysql-bin"
+    # -  "--sync_binlog=1"
